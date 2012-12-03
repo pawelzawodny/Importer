@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Forms;
 
 namespace Importer
 {
@@ -24,5 +25,45 @@ namespace Importer
         {
             InitializeComponent();
         }
+
+        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            OpenFileDialog open = new OpenFileDialog();
+
+            open.Multiselect = false;
+
+            open.Filter = "AllFiles|*.*";
+
+            if (open.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+{
+    UserImporterDataProvider uidp = (UserImporterDataProvider)this.Resources["UserImporterDataProvider"];
+    uidp.Uploader(open.FileName, open.OpenFile());
+
+                    textBlock1.Text = "File Uploaded";
+            }
+            
+    
+
+            else
+            {
+
+                textBlock1.Text = " No files selected!";
+
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 }
