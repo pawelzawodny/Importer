@@ -26,8 +26,8 @@ namespace Importer
             InitializeComponent();
         }
 
-        
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void upload_button_Click(object sender, RoutedEventArgs e)
         {
 
             OpenFileDialog open = new OpenFileDialog();
@@ -41,7 +41,7 @@ namespace Importer
     UserImporterDataProvider uidp = (UserImporterDataProvider)this.Resources["UserImporterDataProvider"];
     uidp.Uploader(open.FileName, open.OpenFile());
 
-                    textBlock1.Text = "File Uploaded";
+                  textBlock1.Text = "File Uploaded";
             }
             
     
@@ -55,6 +55,7 @@ namespace Importer
 
         }
 
+    
 
 
 
